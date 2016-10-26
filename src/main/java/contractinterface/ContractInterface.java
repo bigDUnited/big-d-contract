@@ -14,5 +14,5 @@ public interface ContractInterface {
 
     JourneysDTO getJourney(int routeId);
 
-    ReservationSummaryDTO makeReservation(String journeyId, int numOfPeople, String vehicleType);
+    ReservationSummaryDTO makeReservation(int journeyId, int numOfPeople, String vehicleType);
 }

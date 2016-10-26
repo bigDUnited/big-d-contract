@@ -6,6 +6,7 @@ import contractinterface.ContractInterface;
 import dtos.JourneySummaryDTO;
 import dtos.JourneysDTO;
 import dtos.LocationDTO;
+import dtos.ReservationSummaryDTO;
 import dtos.RouteDTO;
 import java.util.Date;
 import org.junit.AfterClass;
@@ -173,5 +174,59 @@ public class ContractMockito_Test {
 
             i++;
         }
+    }
+
+    @Test
+    public void makeReservationMock_Test() {
+        
+        //Prebuild
+        int localJourneyId = 70;
+        int localNumOfPeople = 3;
+        String localVehicleType = "Car";
+
+        String localDepartureLocation = "София";
+        String localDestinationLocation = "København";
+        String localFerryName = "Big ferry";
+        int localReferenceNumber = 3500700;
+
+        //Mocking
+        Mockito.when(
+                contract.makeReservation(localJourneyId, localNumOfPeople,
+                        localVehicleType)
+        ).thenAnswer(new Answer() {
+            ReservationSummaryDTO mockedReservationSummaryDTO;
+
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                mockedReservationSummaryDTO
+                        = new ReservationSummaryDTO("София", "København", new Date(),
+                                new Date(), "Big ferry", 3, "Car", 3500700);
+
+                return mockedReservationSummaryDTO;
+            }
+        });
+
+        //Testing
+        ReservationSummaryDTO reservationSummaryDTO
+                = contract.makeReservation(localJourneyId, localNumOfPeople,
+                        localVehicleType);
+
+        MatcherAssert.assertThat(reservationSummaryDTO.getDepartureLocation(),
+                is(localDepartureLocation));
+
+        MatcherAssert.assertThat(reservationSummaryDTO.getDestinationLocation(),
+                is(localDestinationLocation));
+
+        MatcherAssert.assertThat(reservationSummaryDTO.getFerryName(),
+                is(localFerryName));
+
+        MatcherAssert.assertThat(reservationSummaryDTO.getNumberOfPeople(),
+                is(localNumOfPeople));
+
+        MatcherAssert.assertThat(reservationSummaryDTO.getVehicleType(),
+                is(localVehicleType));
+
+        MatcherAssert.assertThat(reservationSummaryDTO.getReferenceNumber(),
+                is(localReferenceNumber));
     }
 }
