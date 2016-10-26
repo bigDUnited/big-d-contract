@@ -6,13 +6,13 @@ import java.util.List;
 public class JourneysDTO {
 
     private List<JourneySummaryDTO> journeysList;
-    private Date from;
-    private Date to;
+    private String departureLocation;
+    private String destinationLocation;
 
-    public JourneysDTO(List<JourneySummaryDTO> journeysList, Date from, Date to) {
+    public JourneysDTO(List<JourneySummaryDTO> journeysList, String departureLocation, String destinationLocation) {
         this.journeysList = journeysList;
-        this.from = from;
-        this.to = to;
+        this.departureLocation = departureLocation;
+        this.destinationLocation = destinationLocation;
     }
 
     public List<JourneySummaryDTO> getJourneysList() {
@@ -23,30 +23,29 @@ public class JourneysDTO {
         this.journeysList = journeysList;
     }
 
-    public Date getFrom() {
-        return from;
+    public String getDepartureLocation() {
+        return departureLocation;
     }
 
-    public void setFrom(Date from) {
-        this.from = from;
+    public void setDepartureLocation(String departureLocation) {
+        this.departureLocation = departureLocation;
     }
 
-    public Date getTo() {
-        return to;
+    public String getDestinationLocation() {
+        return destinationLocation;
     }
 
-    public void setTo(Date to) {
-        this.to = to;
+    public void setDestinationLocation(String destinationLocation) {
+        this.destinationLocation = destinationLocation;
     }
-
-   
 
     /*
      * Testing purposes
      */
     @Override
     public String toString() {
-        return "JourneysDTO{" + "journeysList=" + journeysList + ", from=" + from
-                + ", to=" + to + '}';
+        return "JourneysDTO{" + "journeysList=" + journeysList + ", departureLocation="
+                + departureLocation + ", destinationLocation=" + destinationLocation + '}';
     }
+
 }

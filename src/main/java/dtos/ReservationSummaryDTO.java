@@ -4,46 +4,58 @@ import java.util.Date;
 
 public class ReservationSummaryDTO {
 
-    private String from, to;
-    private Date date;
+    private String departureLocation;
+    private String destinationLocation;
+    private Date departureDate;
+    private Date arrivalDate;
     private String ferryName;
     private int numberOfPeople;
     private String vehicleType;
-    private int referenceNumber;
+    private int referenceNumber; //booking reference number 
 
-    public ReservationSummaryDTO(String from, String to, Date date, String ferryName,
-            int numberOfPeople, String vehicleType, int referenceNumber) {
-        this.from = from;
-        this.to = to;
-        this.date = date;
+    public ReservationSummaryDTO(String departureLocation, String destinationLocation,
+            Date departureDate, Date arrivalDate, String ferryName, int numberOfPeople,
+            String vehicleType, int referenceNumber) {
+        this.departureLocation = departureLocation;
+        this.destinationLocation = destinationLocation;
+        this.departureDate = departureDate;
+        this.arrivalDate = arrivalDate;
         this.ferryName = ferryName;
         this.numberOfPeople = numberOfPeople;
         this.vehicleType = vehicleType;
         this.referenceNumber = referenceNumber;
     }
 
-    public String getFrom() {
-        return from;
+    public String getDepartureLocation() {
+        return departureLocation;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setDepartureLocation(String departureLocation) {
+        this.departureLocation = departureLocation;
     }
 
-    public String getTo() {
-        return to;
+    public String getDestinationLocation() {
+        return destinationLocation;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setDestinationLocation(String destinationLocation) {
+        this.destinationLocation = destinationLocation;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDepartureDate() {
+        return departureDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
     }
 
     public String getFerryName() {
@@ -80,10 +92,11 @@ public class ReservationSummaryDTO {
 
     @Override
     public String toString() {
-        return "ReservationSummaryDTO{" + "from=" + from + ", to=" + to
-                + ", date=" + date + ", ferryName=" + ferryName + ", numberOfPeople="
-                + numberOfPeople + ", vehicleType=" + vehicleType + ", referenceNumber="
-                + referenceNumber + '}';
+        return "ReservationSummaryDTO{" + "departureLocation=" + departureLocation
+                + ", destinationLocation=" + destinationLocation + ", departureDate="
+                + departureDate + ", arrivalDate=" + arrivalDate + ", ferryName="
+                + ferryName + ", numberOfPeople=" + numberOfPeople + ", vehicleType="
+                + vehicleType + ", referenceNumber=" + referenceNumber + '}';
     }
 
 }

@@ -3,8 +3,11 @@ package contractmock;
 import java.util.Arrays;
 import java.util.List;
 import contractinterface.ContractInterface;
+import dtos.JourneySummaryDTO;
+import dtos.JourneysDTO;
 import dtos.LocationDTO;
 import dtos.RouteDTO;
+import java.util.Date;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -90,7 +93,6 @@ public class ContractMockito_Test {
 
             @Override
             public Object answer(InvocationOnMock invocation) throws Throwable {
-                System.out.println("Hello from the mocked shit");
                 mockedRouteDTOlist = Arrays.asList(
                         new RouteDTO(1, "София", "București"),
                         new RouteDTO(1, "София", "København"),
@@ -103,7 +105,7 @@ public class ContractMockito_Test {
         });
 
         //Testing
-        List<RouteDTO> routeDTOlist = contract.getRoutes(1);
+        List<RouteDTO> routeDTOlist = contract.getRoutes(locationId);
         MatcherAssert.assertThat(routeDTOlist.size(), is(4));
 
         int i = 0;
@@ -116,6 +118,58 @@ public class ContractMockito_Test {
 
             MatcherAssert.assertThat(routeDTO.getDestinationLocation(),
                     is(localDestinationLocations[i]));
+
+            i++;
+        }
+    }
+
+    @Test
+    public void getJourneyMock_Test() {
+
+        //Prebuild
+        int routeId = 1;
+        String localDepartureLocation = "София";
+        String localDestinationLocation = "București";
+        int[] localJourneyIds = {25, 35, 70, 105};
+        String[] localShipTypes = {"Medium ship", "Big ship", "Small ship",
+            "Medium ship"};
+
+        //Mocking
+        Mockito.when(
+                contract.getJourney(routeId)
+        ).thenAnswer(new Answer() {
+            JourneysDTO mockedJorneysDTO;
+
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                mockedJorneysDTO = new JourneysDTO(
+                        Arrays.asList(
+                                new JourneySummaryDTO(25, new Date(), new Date(), "Medium ship"),
+                                new JourneySummaryDTO(35, new Date(), new Date(), "Big ship"),
+                                new JourneySummaryDTO(70, new Date(), new Date(), "Small ship"),
+                                new JourneySummaryDTO(105, new Date(), new Date(), "Medium ship")
+                        ), "София", "București");
+
+                return mockedJorneysDTO;
+            }
+        });
+
+        //Testing
+        JourneysDTO journeysDTO = contract.getJourney(routeId);
+        MatcherAssert.assertThat(journeysDTO.getDepartureLocation(),
+                is(localDepartureLocation));
+        MatcherAssert.assertThat(journeysDTO.getDestinationLocation(),
+                is(localDestinationLocation));
+
+        List<JourneySummaryDTO> journeySummaryDTOList = journeysDTO.getJourneysList();
+
+        int i = 0;
+        for (JourneySummaryDTO journeySummaryDTO : journeySummaryDTOList) {
+            MatcherAssert.assertThat(journeySummaryDTO.getJourneyId(),
+                    is(localJourneyIds[i]));
+
+            MatcherAssert.assertThat(journeySummaryDTO.getFerryName(),
+                    is(localShipTypes[i]));
 
             i++;
         }
