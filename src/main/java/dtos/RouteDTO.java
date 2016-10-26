@@ -3,12 +3,12 @@ package dtos;
 public class RouteDTO {
 
     private int routeId;
-    private String start, end;
+    private String departureLocation, destinationLocation;
 
-    public RouteDTO(int routeId, String start, String end) {
+    public RouteDTO(int routeId, String departureLocation, String destinationLocation) {
         this.routeId = routeId;
-        this.start = start;
-        this.end = end;
+        this.departureLocation = departureLocation;
+        this.destinationLocation = destinationLocation;
     }
 
     public int getRouteId() {
@@ -19,26 +19,30 @@ public class RouteDTO {
         this.routeId = routeId;
     }
 
-    public String getStart() {
-        return start;
+    public String getDepartureLocation() {
+        return departureLocation;
     }
 
-    public void setStart(String start) {
-        this.start = start;
+    public void setDepartureLocation(String departureLocation) {
+        this.departureLocation = departureLocation;
     }
 
-    public String getEnd() {
-        return end;
+    public String getDestinationLocation() {
+        return destinationLocation;
     }
 
-    public void setEnd(String end) {
-        this.end = end;
+    public void setDestinationLocation(String destinationLocation) {
+        this.destinationLocation = destinationLocation;
     }
 
+    /*
+     * Testing purposes
+     */
     @Override
     public String toString() {
-        return "RouteDTO{" + "routeId=" + routeId + ", start=" + start + ", end="
-                + end + '}';
+        return "RouteDTO{" + "routeId=" + routeId + ", departureLocation="
+                + departureLocation + ", destinationLocation=" + destinationLocation
+                + '}';
     }
 
 }

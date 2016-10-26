@@ -3,11 +3,11 @@ package dtos;
 public class LocationDTO {
 
     private int locationId;
-    private String name;
+    private String locationName;
 
-    public LocationDTO(int locationId, String name) {
+    public LocationDTO(int locationId, String locationName) {
         this.locationId = locationId;
-        this.name = name;
+        this.locationName = locationName;
     }
 
     public void setLocationId(int locationId) {
@@ -18,12 +18,12 @@ public class LocationDTO {
         return locationId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLocationName() {
+        return locationName;
     }
 
-    public String getName() {
-        return name;
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 
     /*
@@ -31,7 +31,8 @@ public class LocationDTO {
      */
     @Override
     public String toString() {
-        return "LocationDTO{" + "locationId=" + locationId + ", name=" + name + '}';
+        return "LocationDTO{" + "locationId=" + locationId + ", locationName="
+                + locationName + '}';
     }
 
 }
