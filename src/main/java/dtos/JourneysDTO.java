@@ -1,14 +1,15 @@
 package dtos;
 
+import java.util.Date;
 import java.util.List;
 
 public class JourneysDTO {
 
     private List<JourneySummaryDTO> journeysList;
-    private String from;
-    private String to;
+    private Date from;
+    private Date to;
 
-    public JourneysDTO(List<JourneySummaryDTO> journeysList, String from, String to) {
+    public JourneysDTO(List<JourneySummaryDTO> journeysList, Date from, Date to) {
         this.journeysList = journeysList;
         this.from = from;
         this.to = to;
@@ -22,21 +23,23 @@ public class JourneysDTO {
         this.journeysList = journeysList;
     }
 
-    public String getFrom() {
+    public Date getFrom() {
         return from;
     }
 
-    public void setFrom(String from) {
+    public void setFrom(Date from) {
         this.from = from;
     }
 
-    public String getTo() {
+    public Date getTo() {
         return to;
     }
 
-    public void setTo(String to) {
+    public void setTo(Date to) {
         this.to = to;
     }
+
+   
 
     /*
      * Testing purposes
