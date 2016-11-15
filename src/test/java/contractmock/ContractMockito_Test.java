@@ -111,9 +111,6 @@ public class ContractMockito_Test {
 
         int i = 0;
         for (RouteDTO routeDTO : routeDTOlist) {
-            MatcherAssert.assertThat(routeDTO.getRouteId(),
-                    is(locationId));
-
             MatcherAssert.assertThat(routeDTO.getDepartureLocation(),
                     is(localDepartureLocation));
 
