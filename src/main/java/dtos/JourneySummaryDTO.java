@@ -49,6 +49,9 @@ public class JourneySummaryDTO {
         this.ferryName = ferryName;
     }
 
+    /*
+     * Testing purposes
+     */
     @Override
     public String toString() {
         return "JourneySummaryDTO{" + "journeyId=" + journeyId + ", departureDate="

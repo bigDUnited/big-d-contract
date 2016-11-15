@@ -96,9 +96,9 @@ public class ContractMockito_Test {
             public Object answer(InvocationOnMock invocation) throws Throwable {
                 mockedRouteDTOlist = Arrays.asList(
                         new RouteDTO(1, "София", "București"),
-                        new RouteDTO(1, "София", "København"),
-                        new RouteDTO(1, "София", "Bratislava"),
-                        new RouteDTO(1, "София", "Warszawa")
+                        new RouteDTO(2, "София", "København"),
+                        new RouteDTO(3, "София", "Bratislava"),
+                        new RouteDTO(4, "София", "Warszawa")
                 );
 
                 return mockedRouteDTOlist;

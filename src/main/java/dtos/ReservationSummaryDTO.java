@@ -98,5 +98,5 @@ public class ReservationSummaryDTO {
                 + ferryName + ", numberOfPeople=" + numberOfPeople + ", vehicleType="
                 + vehicleType + ", referenceNumber=" + referenceNumber + '}';
     }
-
+    
 }

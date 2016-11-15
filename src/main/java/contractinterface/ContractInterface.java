@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface ContractInterface {
 
-    List<LocationDTO> getLocations();
+    public List<LocationDTO> getLocations();
 
-    List<RouteDTO> getRoutes(int locationId);
+    public List<RouteDTO> getRoutes(int locationId);
 
-    JourneysDTO getJourney(int routeId);
+    public JourneysDTO getJourney(int routeId);
 
-    ReservationSummaryDTO makeReservation(int journeyId, int numOfPeople, String vehicleType);
+    public ReservationSummaryDTO makeReservation(int journeyId, int numOfPeople, String vehicleType);
 }
