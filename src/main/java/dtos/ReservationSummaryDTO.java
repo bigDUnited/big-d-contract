@@ -90,6 +90,9 @@ public class ReservationSummaryDTO {
         this.referenceNumber = referenceNumber;
     }
 
+     /*
+     * Testing purposes
+     */
     @Override
     public String toString() {
         return "ReservationSummaryDTO{" + "departureLocation=" + departureLocation
