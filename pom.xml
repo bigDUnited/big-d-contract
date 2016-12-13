@@ -3,8 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>big-d</groupId>
     <artifactId>contract</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.3.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>big-d-contract</name>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

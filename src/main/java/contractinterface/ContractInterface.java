@@ -15,4 +15,8 @@ public interface ContractInterface {
     public JourneysDTO getJourney(int routeId);
 
     public ReservationSummaryDTO makeReservation(int journeyId, int numOfPeople, String vehicleType);
+    
+    public ReservationSummaryDTO getReservation(int reservationId);
+    
+    public List<ReservationSummaryDTO> getAllReservations();
 }
